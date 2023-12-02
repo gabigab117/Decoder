@@ -14,7 +14,6 @@ class Decoder:
         coord = []
         for line in self.__my_list:
             coord_line = [e for e in line if e.isdigit()]
-            coord_line.append(coord_line[0]) if len(coord_line) == 1 else None
                 
             coord.append("".join(coord_line))
         
