@@ -3,16 +3,16 @@ from typing import TextIO
 class Decoder:
     def __init__(self, file: TextIO):
         self.file = file
-        self.my_list = self.open_file().split("\n")
+        self.__my_list = self.__open_file().split("\n")
     
-    def open_file(self):
+    def __open_file(self):
         with open(self.file, "r") as f:
             contenu = f.read()
         return contenu
     
-    def extract_digit(self):
+    def __extract_digit(self):
         coord = []
-        for line in self.my_list:
+        for line in self.__my_list:
             coord_line = [e for e in line if e.isdigit()]
             coord_line.append(coord_line[0]) if len(coord_line) == 1 else None
                 
@@ -20,8 +20,8 @@ class Decoder:
         
         return coord
     
-    def get_first_and_last_digit(self):
-        return [int("".join((n[0], n[-1]))) for n in self.extract_digit()]
+    def __get_first_and_last_digit(self):
+        return [int("".join((n[0], n[-1]))) for n in self.__extract_digit()]
     
     def sum_coord(self):
-        return sum(self.get_first_and_last_digit())
+        return sum(self.__get_first_and_last_digit())
