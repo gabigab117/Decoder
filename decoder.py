@@ -3,18 +3,16 @@ from typing import TextIO
 class Decoder:
     def __init__(self, file: TextIO):
         self.file = file
+        self.my_list = self.open_file().split("\n")
     
     def open_file(self):
         with open(self.file, "r") as f:
             contenu = f.read()
         return contenu
     
-    def split_content(self):
-        return self.open_file().split("\n")
-    
     def extract_digit(self):
         coord = []
-        for line in self.split_content():
+        for line in self.my_list:
             coord_line = [e for e in line if e.isdigit()]
             coord_line.append(coord_line[0]) if len(coord_line) == 1 else None
                 
