@@ -11,13 +11,8 @@ class Decoder:
         return contenu
     
     def __extract_digit(self):
-        coord = []
-        for line in self.__my_list:
-            coord_line = [e for e in line if e.isdigit()]
-                
-            coord.append("".join(coord_line))
+        return ["".join(e for e in line if e.isdigit()) for line in self.__my_list]
         
-        return coord
     
     def __get_first_and_last_digit(self):
         return [int((n[0] + n[-1])) for n in self.__extract_digit()]
