@@ -21,7 +21,7 @@ class Decoder:
         return coord
     
     def __get_first_and_last_digit(self):
-        return [int("".join((n[0], n[-1]))) for n in self.__extract_digit()]
+        return [int((n[0] + n[-1])) for n in self.__extract_digit()]
     
     def sum_coord(self):
         return sum(self.__get_first_and_last_digit())
